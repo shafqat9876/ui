@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clothing Brand </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Clothify</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Summer Wear</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#men">Mens Wear</a></li>
+              <li><a class="dropdown-item" href="#women">Womens Wear</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Winter Wear</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#men">Mens Wear</a></li>
+              <li><a class="dropdown-item" href="#women">Womens Wear</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex" onsubmit="searchProducts();">
+          <input id="searchInput" class="form-control" type="search" placeholder="Search...">
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div id="heroCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="img/log img.jpg" class="d-block w-100" height="400">
+      </div>
+      <div class="carousel-item">
+        <img src="img/upper img.jpg" class="d-block w-100" height="400">
+      </div>
+    </div>
+    <button class="carousel-control-prev" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <div class="container" id="men">
+    <h2 class="text-center">Mens Wear</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card text-center">
+          <img src="img/shirts.jpg" class="card-img-top">
+          <div class="card-body">
+            <h5>Casual Shirt</h5>
+            <p>Cotton shirt for daily wear.</p>
+            <button class="btn btn-primary" onclick="showModal('Casual Shirt', 1200)">View</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-center">
+          <img src="img/pains.jpg" class="card-img-top">
+          <div class="card-body">
+            <h5>Formal Pants</h5>
+            <p>Slim fit, office wear.</p>
+            <button class="btn btn-primary" onclick="showModal('Formal Pants', 2200)">View</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-center">
+          <img src="img/lather (1).jpg" class="card-img-top">
+          <div class="card-body">
+            <h5>lather jacket</h5>
+            <p>Slim fit, very soft maerial.</p>
+            <button class="btn btn-primary" onclick="showModal('Formal Pants', 2200)">View</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5" id="women">
+    <h2 class="text-center">Womens Wear</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card text-center">
+          <img src="img/summar dtress.jpg" class="card-img-top">
+          <div class="card-body">
+            <h5>Summer Dress</h5>
+            <p>Light floral fabric.</p>
+            <button class="btn btn-primary" onclick="showModal('Summer Dress', 1800)">View</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-center">
+          <img src="img/jacket.jpg" class="card-img-top">
+          <div class="card-body">
+            <h5>Denim Jacket</h5>
+            <p>Street style look.</p>
+            <button class="btn btn-primary" onclick="showModal('Denim Jacket', 3200)">View</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-center">
+          <img src="img/grown.jpg" class="card-img-top">
+          <div class="card-body">
+            <h5>Party Gown</h5>
+            <p>Elegant wear.</p>
+            <button class="btn btn-primary" onclick="showModal('Party Gown', 5000)">View</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="productModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="modalTitle"></h5>
+          <button class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">Price: <span id="modalPrice"></span> PKR</div>
+        <div class="modal-footer">
+          <button class="btn btn-success" onclick="addToCart()">Add to Cart</button>
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5 mb-4">
+    <h2 class="text-center">FAQs</h2>
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" data-bs-toggle="collapse" 
+          data-bs-target="#faq1">What is your return policy?</button>
+        </h2>
+        <div id="faq1" class="accordion-collapse collapse show">
+          <div class="accordion-body">We offer 7-day easy returns.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" 
+          data-bs-target="#faq2">Do you offer free shipping?</button>
+        </h2>
+        <div id="faq2" class="accordion-collapse collapse">
+          <div class="accordion-body">Yes, on orders above PKR 3000.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center">
+    <p>© 2025 Clothify | Follow us on 
+      <a href="#">Facebook</a>, 
+      <a href="#">Instagram</a>, 
+      <a href="#">Twitter</a>
+    </p>
+  </footer>
+
+  <script>
+    function showModal(name, price) {
+      document.getElementById('modalTitle').textContent = name;
+      document.getElementById('modalPrice').textContent = price;
+      const modal = document.getElementById('productModal');
+      modal.classList.add('show');
+      modal.style.display = 'block';
+      document.body.classList.add('modal-open');
+      const backdrop = document.createElement('div');
+      backdrop.className = 'modal-backdrop fade show';
+      document.body.appendChild(backdrop);
+    }
+    function addToCart() {
+      alert(document.getElementById('modalTitle').textContent + " added to cart.");
+    }
+    document.addEventListener('click', e => {
+      if (e.target.classList.contains('btn-close') || e.target.classList.contains('btn-secondary')) {
+        document.getElementById('productModal').style.display = 'none';
+        document.body.classList.remove('modal-open');
+        document.querySelector('.modal-backdrop')?.remove();
+      }
+    });
+    function searchProducts() {
+      let val = document.getElementById("searchInput").value.toLowerCase();
+      document.querySelectorAll(".card").forEach(card => {
+        let t = card.querySelector("h5").textContent.toLowerCase();
+        let d = card.querySelector("p").textContent.toLowerCase();
+        card.parentElement.style.display = (t.includes(val) || d.includes(val)) ? "block" : "none";
+      });
+    }
+  </script>
+  <script>
+    let i = 0, items = document.querySelectorAll('#heroCarousel .carousel-item');
+    function showSlide(index) {
+      items.forEach((el, idx) => el.classList.toggle('active', idx === index));
+    }
+    document.querySelector('.carousel-control-next').onclick = 
+    () => showSlide(i = (i + 1) % items.length);
+    document.querySelector('.carousel-control-prev').onclick 
+    = () => showSlide(i = (i - 1 + items.length) % items.length);
+    setInterval(() => showSlide(i = (i + 1) % items.length), 3000);
+    showSlide(i);
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelector(".navbar-toggler").onclick = () =>
+        document.getElementById("navbarNav").classList.toggle("show");
+      document.querySelectorAll(".nav-item.dropdown").forEach(dropdown => {
+        const toggle = dropdown.querySelector(".nav-link");
+        const menu = dropdown.querySelector(".dropdown-menu");
+        toggle.onclick = e => {
+          e.preventDefault();
+          document.querySelectorAll(".dropdown-menu").
+          forEach(m => m !== menu && m.classList.remove("show"));
+          menu.classList.toggle("show");
+        };
+      });
+      document.addEventListener("click", e => {
+        if (!e.target.closest(".nav-item.dropdown"))
+          document.querySelectorAll(".dropdown-menu").forEach(m => m.classList.remove("show"));
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".accordion-button").forEach(btn => {
+        btn.onclick = () => {
+          const target = document.querySelector(btn.dataset.bsTarget);
+          const open = target.classList.contains("show");
+          document.querySelectorAll(".accordion-collapse").forEach(c => c.classList.remove("show"));
+          document.querySelectorAll(".accordion-button").forEach(b => b.classList.add("collapsed"));
+          if (!open) {
+            target.classList.add("show");
+            btn.classList.remove("collapsed");
+          }
+        };
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+  
+
+
+
+
+
